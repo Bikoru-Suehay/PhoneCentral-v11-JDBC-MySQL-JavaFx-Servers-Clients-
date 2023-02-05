@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="282.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-border-color: #000001; -fx-border-radius: 3px; -fx-background-radius: 3px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biksue.phonecentral_jdbc_sockets.controller.components.CentralViewController">
+   <children>
+      <FontAwesomeIconView glyphName="MODX" layoutX="14.0" layoutY="44.0" size="35" />
+      <Label layoutX="53.0" layoutY="19.0" text="PhoneCentral-v11">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="44.0" layoutY="59.0" prefHeight="211.0" prefWidth="200.0" style="-fx-background-color: #16303F; -fx-background-radius: 3px;" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="9.0">
+         <children>
+            <FontAwesomeIconView fill="WHITE" glyphName="XING" layoutX="25.0" layoutY="58.0" size="27" />
+            <Label fx:id="LabCentralId" layoutX="48.0" layoutY="38.0" text="CentralId" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="ODNOKLASSNIKI" layoutX="26.0" layoutY="88.0" size="27" />
+            <Label fx:id="LabCentralName" layoutX="48.0" layoutY="67.0" text="CentralName" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="GLOBE" layoutX="25.0" layoutY="117.0" size="24" />
+            <Label fx:id="LabCountryName" layoutX="48.0" layoutY="96.0" text="CountryName" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="UNIVERSITY" layoutX="24.0" layoutY="143.0" size="20" />
+            <Label fx:id="LabProvinceName" layoutX="49.0" layoutY="125.0" text="ProvinceName" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="23.0" layoutY="171.0" size="22" />
+            <Label fx:id="LabCityName" layoutX="49.0" layoutY="151.0" text="CityName" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
