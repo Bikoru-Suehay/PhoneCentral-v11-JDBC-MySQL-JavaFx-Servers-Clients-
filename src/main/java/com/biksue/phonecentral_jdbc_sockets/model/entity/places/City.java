@@ -43,6 +43,16 @@ public class City extends Place {
         return Objects.hash(super.hashCode(), idCountry, idProvince);
     }
 
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getIdCountry() {
         return idCountry;
     }

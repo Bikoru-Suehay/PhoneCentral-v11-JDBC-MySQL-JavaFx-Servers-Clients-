@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MySQLCountryDAO implements CountryDAO {
     private Connection connection;
-    final String INSERT = "INSERT INTO country( name, rate) VALUES( ?, ?)";
+    final String INSERT = "INSERT INTO country( id, name, rate) VALUES( ?, ?, ?)";
     final String UPDATE = "UPDATE country SET name=?, rate=? WHERE id=?";
     final String DELETE = "DELETE FROM country WHERE id=?";
     final String GETALL = "SELECT * FROM country";
@@ -29,8 +29,9 @@ public class MySQLCountryDAO implements CountryDAO {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(INSERT);
-            statement.setString(1, country.getName());
-            statement.setLong(2,country.getRate());
+            statement.setLong(1,country.getId());
+            statement.setString(2, country.getName());
+            statement.setLong(3,country.getRate());
             if (statement.executeUpdate() == 0) {
                 throw new DAOException("No se han guardado cambios.");
             }

@@ -17,6 +17,16 @@ public class Province extends Place {
     }
 
     @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
     public String toString() {
         return "Province{" +
                 "idCountry=" + idCountry +

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MySQLCityDAO implements CityDAO {
     private Connection connection;
-    final String INSERT = "INSERT INTO city( name, idCountry, idProvince) VALUES( ?, ?, ?)";
+    final String INSERT = "INSERT INTO city( id, name, idCountry, idProvince) VALUES( ?, ?, ?, ?)";
     final String UPDATE = "UPDATE city SET name=?, idCountry=?, idProvince=? WHERE id=?";
     final String DELETE = "DELETE FROM city WHERE id=?";
     final String GETALL = "SELECT * FROM city";
@@ -29,9 +29,10 @@ public class MySQLCityDAO implements CityDAO {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(INSERT);
-            statement.setString(1, city.getName());
-            statement.setLong(2,city.getIdCountry());
-            statement.setLong(3, city.getIdProvince());
+            statement.setLong(1,city.getId());
+            statement.setString(2, city.getName());
+            statement.setLong(3,city.getIdCountry());
+            statement.setLong(4, city.getIdProvince());
             if (statement.executeUpdate() == 0) {
                 throw new DAOException("No se han guardado cambios.");
             }

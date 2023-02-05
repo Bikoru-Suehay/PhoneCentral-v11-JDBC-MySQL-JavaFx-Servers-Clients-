@@ -31,7 +31,7 @@ public abstract class Place {
         return Objects.hash(id, name);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
