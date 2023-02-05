@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.biksue.phonecentral_jdbc_sockets/com.biksue.phonecentral_jdbc_sockets.app
+                                com.biksue.phonecentral_jdbc_sockets/com.biksue.phonecentral_jdbc_sockets.PHOCEv11
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

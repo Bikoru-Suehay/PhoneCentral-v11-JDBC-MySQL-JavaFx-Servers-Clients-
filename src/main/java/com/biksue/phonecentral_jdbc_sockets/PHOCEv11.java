@@ -8,10 +8,10 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class app extends Application {
+public class PHOCEv11 extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(app.class.getResource("connector-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(PHOCEv11.class.getResource("connector-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);

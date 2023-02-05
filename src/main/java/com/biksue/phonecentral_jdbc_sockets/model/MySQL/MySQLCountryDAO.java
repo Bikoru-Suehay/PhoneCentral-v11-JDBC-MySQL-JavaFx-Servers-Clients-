@@ -1,7 +1,6 @@
 package com.biksue.phonecentral_jdbc_sockets.model.MySQL;
 
 import com.biksue.phonecentral_jdbc_sockets.model.DAO.CountryDAO;
-import com.biksue.phonecentral_jdbc_sockets.model.entity.Numbers;
 import com.biksue.phonecentral_jdbc_sockets.model.entity.places.Country;
 import com.biksue.phonecentral_jdbc_sockets.model.exceptions.DAOException;
 import com.biksue.phonecentral_jdbc_sockets.model.util.ConnectionTool;
@@ -29,9 +28,9 @@ public class MySQLCountryDAO implements CountryDAO {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(INSERT);
-            statement.setLong(1,country.getId());
+            statement.setLong(1, country.getId());
             statement.setString(2, country.getName());
-            statement.setLong(3,country.getRate());
+            statement.setLong(3, country.getRate());
             if (statement.executeUpdate() == 0) {
                 throw new DAOException("No se han guardado cambios.");
             }
@@ -118,8 +117,14 @@ public class MySQLCountryDAO implements CountryDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }
@@ -135,6 +140,7 @@ public class MySQLCountryDAO implements CountryDAO {
         Country country = null;
         try {
             statement = connection.prepareStatement(GETONE);
+            statement.setLong(1, id);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 country = new Country();
@@ -147,8 +153,14 @@ public class MySQLCountryDAO implements CountryDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }

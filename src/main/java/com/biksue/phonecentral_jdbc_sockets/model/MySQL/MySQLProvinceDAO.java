@@ -117,8 +117,14 @@ public class MySQLProvinceDAO implements ProvinceDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }
@@ -134,6 +140,7 @@ public class MySQLProvinceDAO implements ProvinceDAO {
         Province province = null;
         try {
             statement = connection.prepareStatement(GETONE);
+            statement.setLong(1, id);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 province = new Province();
@@ -146,8 +153,14 @@ public class MySQLProvinceDAO implements ProvinceDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }

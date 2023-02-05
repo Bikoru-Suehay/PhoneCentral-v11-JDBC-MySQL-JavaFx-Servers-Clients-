@@ -111,8 +111,14 @@ public class MySQLCallDAO implements CallDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }
@@ -150,8 +156,14 @@ public class MySQLCallDAO implements CallDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }
@@ -188,8 +200,14 @@ public class MySQLCallDAO implements CallDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }

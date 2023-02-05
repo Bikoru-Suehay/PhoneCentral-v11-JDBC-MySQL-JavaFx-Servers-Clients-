@@ -1,5 +1,6 @@
 package com.biksue.phonecentral_jdbc_sockets.controller;
 
+import com.biksue.phonecentral_jdbc_sockets.PHOCEv11;
 import com.biksue.phonecentral_jdbc_sockets.controller.components.CentralViewController;
 import com.biksue.phonecentral_jdbc_sockets.model.entity.Central;
 import com.biksue.phonecentral_jdbc_sockets.model.exceptions.DAOException;
@@ -17,6 +18,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -87,12 +90,13 @@ public class ConnectorController implements Initializable {
         ArrayList<Central> auxCentrals;
         if (name != null) auxCentrals = CentralFilter.filterByName(name);
         else auxCentrals = CentralFilter.filterByCountry(country);
-
-        Node[] auxNodes = new Node[auxCentrals.size()];
+        int centralNum=auxCentrals.size();
+        this.AncPanLabNumberOfCentrals.setText(centralNum+"");
+        Node[] auxNodes = new Node[centralNum];
         for (int i = 0; i < auxNodes.length; i++) {
             try{
-                FXMLLoader loader=new FXMLLoader(getClass().getResource("central-view.fxml"));
-                auxNodes=loader.load();
+                FXMLLoader loader=new FXMLLoader(PHOCEv11.class.getResource("central-view.fxml"));
+                auxNodes[i]=loader.load();
                 CentralViewController controller=loader.getController();
                 controller.ini(
                         auxCentrals.get(i).getId()+"",
@@ -102,12 +106,26 @@ public class ConnectorController implements Initializable {
                         Constants.mySQLDAOManager.getCityDAO().get(auxCentrals.get(i).getCity()).getName()
                         );
                 auxNodes[i].setUserData(auxCentrals.get(i));
+                auxNodes[i].setTranslateY(6);
                 this.AncPanHBoxCentralContainer.getChildren().add(auxNodes[i]);
             }catch (IOException e){
                 e.printStackTrace();
             }
         }
-
+        eventAncPanHBoxCentralContainer();
+    }
+    private void eventAncPanHBoxCentralContainer() {
+        for (int j = 0; j < this.AncPanHBoxCentralContainer.getChildren().size(); j++) {
+            final int o = j;
+            this.AncPanHBoxCentralContainer.getChildren().get(j).setOnMouseExited(event -> {
+                this.AncPanHBoxCentralContainer.getChildren().get(o).setStyle("-fx-background-color :  rgba(85, 85, 85,0.20)");
+                this.AncPanHBoxCentralContainer.getChildren().get(o).setTranslateY(3);
+            });
+            this.AncPanHBoxCentralContainer.getChildren().get(j).setOnMouseEntered(event -> {
+                this.AncPanHBoxCentralContainer.getChildren().get(o).setStyle("-fx-background-color : rgba(125, 179, 91, 0.20)");
+                this.AncPanHBoxCentralContainer.getChildren().get(o).setTranslateY(-3);
+            });
+        }
     }
 
     public void AncPanTexFieFilterByCountryMouseClicked(MouseEvent mouseEvent) throws DAOException {
@@ -118,5 +136,13 @@ public class ConnectorController implements Initializable {
     public void AncPanTexFieFilterByNameMouseClicked(MouseEvent mouseEvent) throws DAOException {
         this.AncPanTexFieFilterByCountry.setText("");
         updateAncPanHBoxCentralContainer(null, null);
+    }
+
+    public void AncPanTexFieFilterByNameTextChanged(KeyEvent inputMethodEvent) throws DAOException {
+        updateAncPanHBoxCentralContainer(this.AncPanTexFieFilterByName.getText(),null);
+    }
+
+    public void AncPanTexFieFilterByCountryTextChanged(KeyEvent inputMethodEvent) throws DAOException {
+        updateAncPanHBoxCentralContainer(null,this.AncPanTexFieFilterByCountry.getText());
     }
 }

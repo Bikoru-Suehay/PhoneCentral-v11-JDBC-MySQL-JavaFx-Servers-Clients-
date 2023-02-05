@@ -20,9 +20,11 @@ public class ProvinceFilter {
     }
     public static ArrayList<Province> filterByName(String name) throws DAOException {
         if (name == null) return list();
+        if (name.isBlank()) return list();
+        final String aux=name.toLowerCase();
         ArrayList<Province> list = new ArrayList<>();
         for (Province p : list())
-            if (p.getName().contains(name)) list.add(p);
+            if (p.getName().toLowerCase().contains(aux)) list.add(p);
         return list;
     }
     public static ArrayList<Province> filterByIdCountry(Long idCountry) throws DAOException {

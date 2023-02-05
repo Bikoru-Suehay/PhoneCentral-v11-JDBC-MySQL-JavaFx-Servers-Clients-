@@ -8,7 +8,9 @@ module com.biksue.phonecentral_jdbc_sockets {
 
     opens com.biksue.phonecentral_jdbc_sockets to javafx.fxml,com.jfoenix,javafx.controls;
     opens com.biksue.phonecentral_jdbc_sockets.controller to javafx.fxml,com.jfoenix,javafx.controls;
+    opens com.biksue.phonecentral_jdbc_sockets.controller.components to javafx.fxml,com.jfoenix,javafx.controls;
     exports com.biksue.phonecentral_jdbc_sockets;
     exports com.biksue.phonecentral_jdbc_sockets.controller;
+    exports com.biksue.phonecentral_jdbc_sockets.controller.components;
 
 }

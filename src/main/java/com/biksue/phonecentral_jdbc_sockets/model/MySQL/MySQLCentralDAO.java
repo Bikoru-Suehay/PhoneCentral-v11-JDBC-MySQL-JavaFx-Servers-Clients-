@@ -120,8 +120,14 @@ public class MySQLCentralDAO implements CentralDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }
@@ -137,6 +143,7 @@ public class MySQLCentralDAO implements CentralDAO {
         Central central = null;
         try {
             statement = connection.prepareStatement(GETONE);
+            statement.setLong(1, id);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 central = new Central();
@@ -152,8 +159,14 @@ public class MySQLCentralDAO implements CentralDAO {
         } finally {
             if (statement != null) {
                 try {
-                    ConnectionTool.close(resultSet);
                     ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
                 } catch (SQLException e) {
                     throw new DAOException("Error en SQL", e);
                 }

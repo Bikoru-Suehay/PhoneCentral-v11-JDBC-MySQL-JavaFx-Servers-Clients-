@@ -20,9 +20,11 @@ public class CityFilter {
     }
     public static ArrayList<City> filterByName(String name) throws DAOException {
         if (name == null) return list();
+        if (name.isBlank()) return list();
+        final String aux=name.toLowerCase();
         ArrayList<City> list = new ArrayList<>();
         for (City c : list())
-            if (c.getName().contains(name)) list.add(c);
+            if (c.getName().toLowerCase().contains(aux)) list.add(c);
         return list;
     }
     public static ArrayList<City> filterByIdCountry(Long idCountry) throws DAOException {
