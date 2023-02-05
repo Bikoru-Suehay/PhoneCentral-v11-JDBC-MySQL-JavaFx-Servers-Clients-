@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1064.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 2px; -fx-border-radius: 2px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biksue.phonecentral_jdbc_sockets.controller.ConnectorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1064.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biksue.phonecentral_jdbc_sockets.controller.ConnectorController">
    <children>
       <AnchorPane fx:id="AncPanLeftButtons" layoutY="35.0" prefHeight="610.0" prefWidth="105.0" style="-fx-background-color: #1B262D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0" />
       <AnchorPane fx:id="AncPanStart" layoutX="78.0" layoutY="35.0" prefHeight="610.0" prefWidth="962.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">

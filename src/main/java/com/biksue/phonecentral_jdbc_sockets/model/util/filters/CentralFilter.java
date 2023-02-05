@@ -24,7 +24,7 @@ public class CentralFilter {
     public static ArrayList<Central> filterByName(String name) throws DAOException {
         if (name == null) return list();
         if (name.isBlank()) return list();
-        final String aux=name.toLowerCase();
+        final String aux = name.toLowerCase();
         ArrayList<Central> list = new ArrayList<>();
         for (Central c : list())
             if (c.getName().toLowerCase().contains(aux)) list.add(c);
@@ -34,13 +34,15 @@ public class CentralFilter {
     public static ArrayList<Central> filterByCountry(String countryName) throws DAOException {
         if (countryName == null) return list();
         if (countryName.isBlank()) return list();
-        final String aux= countryName.toLowerCase();
+        final String aux = countryName.toLowerCase();
         ArrayList<Central> list = new ArrayList<>();
-        for (Central c : list())
-            for (Country auxCountry : CountryFilter.filterByName(countryName))
-                if (auxCountry.getName().toLowerCase().contains(aux)){
-                    if(!list.contains(c)) list.add(c);
-                }
+        Country auxCountry;
+        for (Central c : list()) {
+            auxCountry = Constants.mySQLDAOManager.getCountryDAO().get(c.getCountry());
+            if (auxCountry.getName().toLowerCase().contains(aux)) {
+                if (!list.contains(c)) list.add(c);
+            }
+        }
         return list;
     }
 }
