@@ -145,4 +145,7 @@ public class ConnectorController implements Initializable {
     public void AncPanTexFieFilterByCountryTextChanged(KeyEvent inputMethodEvent) throws DAOException {
         updateAncPanHBoxCentralContainer(null,this.AncPanTexFieFilterByCountry.getText());
     }
+
+    public void AncPanStartButCreateLocationAction(ActionEvent actionEvent) {
+    }
 }
