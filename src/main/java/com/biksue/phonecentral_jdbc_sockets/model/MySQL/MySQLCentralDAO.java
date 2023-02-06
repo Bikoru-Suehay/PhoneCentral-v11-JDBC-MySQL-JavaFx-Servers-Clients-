@@ -174,4 +174,9 @@ public class MySQLCentralDAO implements CentralDAO {
         }
         return central;
     }
+
+    @Override
+    public Central get(String name) throws DAOException {
+        return null;
+    }
 }

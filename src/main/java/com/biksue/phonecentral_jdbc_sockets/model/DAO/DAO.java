@@ -14,4 +14,6 @@ public interface DAO<T, K> {
     ArrayList<T> getAll() throws DAOException;
 
     T get(K id) throws DAOException;
+
+    T get(String name) throws DAOException;
 }

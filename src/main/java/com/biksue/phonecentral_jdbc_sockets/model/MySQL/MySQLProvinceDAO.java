@@ -1,6 +1,7 @@
 package com.biksue.phonecentral_jdbc_sockets.model.MySQL;
 
 import com.biksue.phonecentral_jdbc_sockets.model.DAO.ProvinceDAO;
+import com.biksue.phonecentral_jdbc_sockets.model.entity.places.Country;
 import com.biksue.phonecentral_jdbc_sockets.model.entity.places.Province;
 import com.biksue.phonecentral_jdbc_sockets.model.exceptions.DAOException;
 import com.biksue.phonecentral_jdbc_sockets.model.util.ConnectionTool;
@@ -13,11 +14,13 @@ import java.util.ArrayList;
 
 public class MySQLProvinceDAO implements ProvinceDAO {
     private Connection connection;
-    final String INSERT = "INSERT INTO province( id, name, idCountry) VALUES( ?, ?, ?)";
+    final String INSERT = "INSERT INTO province( name, idCountry) VALUES( ?, ?)";
     final String UPDATE = "UPDATE province SET name=?, idCountry=? WHERE id=?";
     final String DELETE = "DELETE FROM province WHERE id=?";
     final String GETALL = "SELECT * FROM province";
     final String GETONE = "SELECT * FROM province WHERE id=?";
+    final String GETONENAME = "SELECT * FROM province WHERE name=?";
+
 
     public MySQLProvinceDAO(Connection connection) {
         this.connection = connection;
@@ -28,9 +31,8 @@ public class MySQLProvinceDAO implements ProvinceDAO {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(INSERT);
-            statement.setLong(1, province.getId());
-            statement.setString(2, province.getName());
-            statement.setLong(3, province.getIdCountry());
+            statement.setString(1, province.getName());
+            statement.setLong(2, province.getIdCountry());
             if (statement.executeUpdate() == 0) {
                 throw new DAOException("No se han guardado cambios.");
             }
@@ -141,6 +143,40 @@ public class MySQLProvinceDAO implements ProvinceDAO {
         try {
             statement = connection.prepareStatement(GETONE);
             statement.setLong(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                province = new Province();
+                province.setId(resultSet.getLong("id"));
+                province.setName(resultSet.getString("name"));
+                province.setIdCountry(resultSet.getLong("idCountry"));
+            } else throw new DAOException("No se ha encontrado el registro.");
+        } catch (SQLException e) {
+            throw new DAOException("Error en SQL", e);
+        } finally {
+            if (statement != null) {
+                try {
+                    ConnectionTool.close(statement);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+            if (resultSet != null) {
+                try {
+                    ConnectionTool.close(resultSet);
+                } catch (SQLException e) {
+                    throw new DAOException("Error en SQL", e);
+                }
+            }
+        }
+        return province;
+    }
+    public Province get(String name) throws DAOException {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Province province = null;
+        try {
+            statement = connection.prepareStatement(GETONENAME);
+            statement.setString(1, name);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 province = new Province();

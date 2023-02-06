@@ -220,4 +220,9 @@ public class MySQLCallDAO implements CallDAO {
     public Call get(Long id) throws DAOException {
         return null;
     }
+
+    @Override
+    public Call get(String name) throws DAOException {
+        return null;
+    }
 }

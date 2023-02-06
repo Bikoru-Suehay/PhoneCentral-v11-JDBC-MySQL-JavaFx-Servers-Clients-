@@ -178,4 +178,9 @@ public class MySQLClientDAO implements ClientDAO {
         }
         return client;
     }
+
+    @Override
+    public Client get(String name) throws DAOException {
+        return null;
+    }
 }

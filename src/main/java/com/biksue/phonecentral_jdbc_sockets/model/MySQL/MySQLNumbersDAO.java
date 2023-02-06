@@ -166,4 +166,9 @@ public class MySQLNumbersDAO implements NumbersDAO {
         }
         return numbers;
     }
+
+    @Override
+    public Numbers get(String name) throws DAOException {
+        return null;
+    }
 }

@@ -29,6 +29,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton fx:id="AncPanStartButModifyCentral" alignment="CENTER" focusTraversable="false" graphicTextGap="3.0" layoutX="20.0" layoutY="56.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#AncPanStartButModifyCentralAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-color: #2196F3;" text="Modify Central" textFill="#000001">
                      <font>
@@ -40,6 +43,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton fx:id="AncPanStartButDeleteCentral" alignment="CENTER" focusTraversable="false" graphicTextGap="1.0" layoutX="20.0" layoutY="93.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#AncPanStartButDeleteCentralAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-color: #2196F3;" text="Delete Central" textFill="#000001">
                      <font>
@@ -51,6 +57,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton fx:id="AncPanStartButInformation" alignment="CENTER" focusTraversable="false" graphicTextGap="2.0" layoutX="20.0" layoutY="167.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#AncPanStartButInformationAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-color: #2196F3;" text="Information" textFill="#000001">
                      <font>
@@ -62,6 +71,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton fx:id="AncPanStartButWorkCentral" alignment="CENTER" focusTraversable="false" graphicTextGap="2.0" layoutX="20.0" layoutY="130.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#AncPanStartButWorkCentralAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-color: #2196F3;" text="Work Central" textFill="#000001">
                      <font>
@@ -73,6 +85,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                </children></AnchorPane>
             <ScrollPane focusTraversable="false" layoutX="30.0" layoutY="239.0" prefHeight="350.0" prefWidth="695.0" style="-fx-background-color: #ffffff;" stylesheets="@css/fullpackstyling.css" vbarPolicy="NEVER" vmax="0.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="236.0">
@@ -129,12 +144,18 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
                   </TextField>
                   <Line endX="92.0" layoutX="107.0" layoutY="44.0" startX="-93.0" />
                   <TextField fx:id="AncPanTexFieFilterByCountry" focusTraversable="false" layoutX="14.0" layoutY="49.0" onKeyTyped="#AncPanTexFieFilterByCountryTextChanged" onMouseClicked="#AncPanTexFieFilterByCountryMouseClicked" prefHeight="30.0" prefWidth="186.0" promptText="Filter by country" style="-fx-text-fill: #A5D8FF; -fx-background-color: #16303F;">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
                   </TextField>
                   <Line endX="92.0" layoutX="108.0" layoutY="79.0" startX="-93.0" />
                   <Label fx:id="AncPanLabNumberOfCentrals" layoutX="165.0" layoutY="152.0" prefHeight="30.0" prefWidth="18.0" text="4" textFill="#000001">
@@ -153,6 +174,9 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                </children>
             </AnchorPane>
