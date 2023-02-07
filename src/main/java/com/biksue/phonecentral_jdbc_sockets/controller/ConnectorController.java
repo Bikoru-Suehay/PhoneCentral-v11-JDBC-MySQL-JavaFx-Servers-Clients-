@@ -12,6 +12,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point3D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,8 +33,14 @@ import java.util.ResourceBundle;
 
 public class ConnectorController implements Initializable {
     public JFXButton AncPanStartButCreateLocation;
+    public Label AncPanStartLabCentralId;
+    public Label AncPanStartLabCentralName;
+    public Label AncPanStartLabCountryName;
+    public Label AncPanStartLabProvinceName;
+    public Label AncPanStartLabCityName;
     private double XOffset;
     private double YOffset;
+    private int idCentralSelected=0;
     public AnchorPane AncPanLeftButtons;
     public AnchorPane AncPanStart;
     public AnchorPane AncPanStartButtons;
@@ -120,8 +127,9 @@ public class ConnectorController implements Initializable {
                         Constants.mySQLDAOManager.getProvinceDAO().get(auxCentrals.get(i).getProvince()).getName(),
                         Constants.mySQLDAOManager.getCityDAO().get(auxCentrals.get(i).getCity()).getName()
                 );
-                auxNodes[i].setUserData(auxCentrals.get(i));
-                auxNodes[i].setTranslateY(6);
+                auxNodes[i].setAccessibleText(auxCentrals.get(i).getId()+"");
+                auxNodes[i].setTranslateY(3);
+                auxNodes[i].setOpacity(0.93);
                 this.AncPanHBoxCentralContainer.getChildren().add(auxNodes[i]);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -139,7 +147,28 @@ public class ConnectorController implements Initializable {
             });
             this.AncPanHBoxCentralContainer.getChildren().get(j).setOnMouseEntered(event -> {
                 this.AncPanHBoxCentralContainer.getChildren().get(o).setStyle("-fx-background-color : rgba(125, 179, 91, 0.20)");
-                this.AncPanHBoxCentralContainer.getChildren().get(o).setTranslateY(-3);
+                this.AncPanHBoxCentralContainer.getChildren().get(o).setTranslateY(0);
+            });
+            this.AncPanHBoxCentralContainer.getChildren().get(j).setOnMouseClicked(event -> {
+                idCentralSelected=Integer.parseInt(this.AncPanHBoxCentralContainer.getChildren().get(o).getAccessibleText());
+                System.out.println(idCentralSelected+"");
+                for(Node node:this.AncPanHBoxCentralContainer.getChildren()){
+                    if(node.equals(this.AncPanHBoxCentralContainer.getChildren().get(o))){
+                        this.AncPanHBoxCentralContainer.getChildren().get(o).setOpacity(1);
+                    }else {
+                        node.setOpacity(0.93);
+                    }
+                    try {
+                        Central aux = Constants.mySQLDAOManager.getCentralDAO().get(Long.valueOf(this.idCentralSelected));
+                        this.AncPanStartLabCentralId.setText(aux.getId()+"");
+                        this.AncPanStartLabCentralName.setText(aux.getName());
+                        this.AncPanStartLabProvinceName.setText(Constants.mySQLDAOManager.getProvinceDAO().get(aux.getProvince()).getName());
+                        this.AncPanStartLabCountryName.setText(Constants.mySQLDAOManager.getCountryDAO().get(aux.getCountry()).getName());
+                        this.AncPanStartLabCityName.setText(Constants.mySQLDAOManager.getCityDAO().get(aux.getCity()).getName());
+                    } catch (DAOException e) {
+                        e.printStackTrace();
+                    }
+                }
             });
         }
     }
