@@ -14,8 +14,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1064.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biksue.phonecentral_jdbc_sockets.controller.ConnectorController">
    <children>
-      <AnchorPane fx:id="AncPanLeftButtons" layoutY="35.0" prefHeight="610.0" prefWidth="105.0" style="-fx-background-color: #1B262D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="35.0" />
-      <AnchorPane fx:id="AncPanStart" layoutX="78.0" layoutY="35.0" prefHeight="610.0" prefWidth="962.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+      <AnchorPane fx:id="AncPanLeftButtons" layoutY="43.0" prefHeight="602.0" prefWidth="105.0" style="-fx-background-color: #1B262D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="43.0" />
+      <AnchorPane fx:id="AncPanStart" layoutX="78.0" layoutY="43.0" prefHeight="602.0" prefWidth="962.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
          <children>
             <AnchorPane fx:id="AncPanStartButtons" layoutX="754.0" layoutY="240.0" prefHeight="376.0" prefWidth="213.0" style="-fx-background-color: #16303F; -fx-background-radius: 3px;" AnchorPane.bottomAnchor="-6.0" AnchorPane.rightAnchor="-5.0">
                <children>
@@ -182,15 +182,15 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane onMouseDragged="#AncPanTitleBarMouseDragged" onMousePressed="#AncPanTitleBarMousePressed" prefHeight="35.0" prefWidth="1064.0" style="-fx-background-color: #12191E;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane onMouseDragged="#AncPanTitleBarMouseDragged" onMousePressed="#AncPanTitleBarMousePressed" prefHeight="44.0" prefWidth="1064.0" style="-fx-background-color: #12191E;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <FontAwesomeIconView fill="WHITE" glyphName="MODX" layoutX="4.0" layoutY="27.0" size="25" />
-            <Label layoutX="33.0" layoutY="8.0" text="PhoneCentral-v11" textFill="WHITE">
+            <FontAwesomeIconView fill="WHITE" glyphName="MODX" layoutX="8.0" layoutY="31.0" size="27" />
+            <Label layoutX="37.0" layoutY="9.0" text="PhoneCentral-v11" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <FontAwesomeIconView fx:id="FonAweClose" fill="WHITE" glyphName="CLOSE" layoutX="1036.0" layoutY="26.0" onMouseClicked="#FonAweCloseAction" size="28">
+            <FontAwesomeIconView fx:id="FonAweClose" fill="WHITE" glyphName="CLOSE" layoutX="1034.0" layoutY="30.0" onMouseClicked="#FonAweCloseAction" size="28">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></FontAwesomeIconView>

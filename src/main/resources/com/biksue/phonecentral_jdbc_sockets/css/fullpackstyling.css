@@ -135,6 +135,38 @@
 	-fx-border-color:derive(gray,80%);
 	-fx-padding:2px;
 }
+
+/*List View start*/
+
+.list-view {
+    -fx-background-color: #16303F;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: #434343;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #434343;
+}
+
+.list-view .list-cell {
+    -fx-background-color: #16303F;
+    -fx-background-radius: 1em;
+    -fx-text-fill: white;
+}
+
+.list-view .label {
+    -fx-text-fill: white;
+}
+
+.jfx-rippler {
+    -jfx-rippler-fill: red;
+}
+
+/*List View end*/
+
+
 .scroll-bar:horizontal,
 .scroll-bar:vertical{
      -fx-background-color: transparent;

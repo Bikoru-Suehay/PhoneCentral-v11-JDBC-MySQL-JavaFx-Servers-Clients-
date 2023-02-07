@@ -49,6 +49,18 @@ public class ConnectorController implements Initializable {
     public FontAwesomeIconView FonAweClose;
 
     public void AncPanStartButCreateCentralAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(PHOCEv11.class.getResource("createCentral-view.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.initStyle(StageStyle.UNDECORATED);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void AncPanStartButModifyCentralAction(ActionEvent actionEvent) {
