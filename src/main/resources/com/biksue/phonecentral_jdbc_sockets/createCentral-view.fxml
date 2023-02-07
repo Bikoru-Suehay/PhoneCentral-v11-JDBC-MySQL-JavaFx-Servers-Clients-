@@ -46,7 +46,7 @@
             </JFXListView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="10.0" layoutY="43.0" prefHeight="73.0" prefWidth="400.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="43.0">
+      <AnchorPane layoutX="10.0" layoutY="45.0" prefHeight="71.0" prefWidth="400.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
          <children>
             <Label layoutX="53.0" layoutY="-1.0" prefHeight="65.0" prefWidth="299.0" text="Select a country, province and city to create a Central." textAlignment="CENTER" textFill="#000000da" wrapText="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="1.0">
                <font>
@@ -55,21 +55,21 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane onMouseDragged="#AncPanTitleBarMouseDragged" onMousePressed="#AncPanTitleBarMousePressed" prefHeight="35.0" prefWidth="420.0" style="-fx-background-color: #16303F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane onMouseDragged="#AncPanTitleBarMouseDragged" onMousePressed="#AncPanTitleBarMousePressed" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #16303F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="417.2857151031494" layoutY="27.0" onMouseClicked="#FonAweCloseMouseClicked" size="28" AnchorPane.rightAnchor="5.714284896850586" AnchorPane.topAnchor="3.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </FontAwesomeIconView>
-            <FontAwesomeIconView fill="WHITE" glyphName="MODX" layoutX="7.0" layoutY="27.0" size="28" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="3.0">
+            <FontAwesomeIconView fill="WHITE" glyphName="MODX" layoutX="7.0" layoutY="30.0" size="28" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="6.0">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </FontAwesomeIconView>
-            <Label layoutX="39.0" layoutY="5.0" text="PhoneCentral-v11 - Create Central" textFill="WHITE" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="5.0">
+            <Label layoutX="39.0" layoutY="8.0" text="PhoneCentral-v11 - Create Central" textFill="WHITE" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="8.0">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
          </children></AnchorPane>
