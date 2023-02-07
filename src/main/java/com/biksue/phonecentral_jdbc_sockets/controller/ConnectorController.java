@@ -58,7 +58,8 @@ public class ConnectorController implements Initializable {
             stg.initStyle(StageStyle.UNDECORATED);
             stg.setScene(scene);
             stg.showAndWait();
-        } catch (IOException e) {
+            this.updateAncPanHBoxCentralContainer(null, null);
+        } catch (IOException | DAOException e) {
             e.printStackTrace();
         }
     }

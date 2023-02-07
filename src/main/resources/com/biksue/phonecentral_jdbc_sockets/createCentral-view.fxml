@@ -5,15 +5,16 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="511.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biksue.phonecentral_jdbc_sockets.controller.auxWindows.CreateCentralController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="124.0" prefHeight="325.0" prefWidth="293.0" style="-fx-background-color: #16303F; -fx-background-radius: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="117.0">
+      <AnchorPane layoutX="10.0" layoutY="124.0" prefHeight="325.0" prefWidth="210.0" style="-fx-background-color: #16303F; -fx-background-radius: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0">
          <children>
-            <Label layoutX="20.0" layoutY="14.0" prefHeight="26.0" prefWidth="92.0" text="Countries:" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="20.0">
+            <Label layoutX="20.0" layoutY="14.0" prefHeight="26.0" prefWidth="92.0" text="Countries:" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -45,7 +46,7 @@
             </JFXListView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="9.0" layoutY="49.0" prefHeight="65.0" prefWidth="396.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 3px;" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="49.0">
+      <AnchorPane layoutX="9.0" layoutY="49.0" prefHeight="65.0" prefWidth="396.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 3px;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="49.0">
          <children>
             <Label layoutX="53.0" layoutY="-1.0" prefHeight="65.0" prefWidth="299.0" text="Select a country, province and city to create a Central." textAlignment="CENTER" textFill="#000000da" wrapText="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="1.0">
                <font>
@@ -78,7 +79,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="ButCreateCentral" focusTraversable="false" layoutX="313.0" layoutY="409.0" onMouseClicked="#ButCreateCentralMouseClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #2196F3;" text="Create" textAlignment="CENTER" textFill="#000001">
+      <JFXButton fx:id="ButCreateCentral" focusTraversable="false" layoutX="233.0" layoutY="409.0" onMouseClicked="#ButCreateCentralMouseClicked" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #2196F3;" text="Create" textAlignment="CENTER" textFill="#000001" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -86,14 +87,22 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <AnchorPane layoutX="313.0" layoutY="124.0" prefHeight="277.0" prefWidth="100.0" style="-fx-background-color: #16303F; -fx-background-radius: 3px;">
+      <AnchorPane layoutX="233.0" layoutY="124.0" prefHeight="272.0" prefWidth="180.0" style="-fx-background-color: #16303F; -fx-background-radius: 3px;" AnchorPane.rightAnchor="10.0">
          <children>
-            <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="32.0" layoutY="62.0" size="50" />
-            <FontAwesomeIconView fill="WHITE" glyphName="MOBILE" layoutX="36.0" layoutY="170.0" size="65" />
-            <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="36.0" layoutY="109.0" size="35" />
-            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="36.0" layoutY="203.0" size="35" wrappingWidth="27.5" />
-            <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="36.0" layoutY="218.0" size="35" wrappingWidth="27.5" />
-            <FontAwesomeIconView fill="WHITE" glyphName="MODX" layoutX="32.0" layoutY="256.0" size="40" />
+            <Label layoutX="22.0" layoutY="14.0" text="Give a name:" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="14.0">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="texFieName" focusTraversable="false" layoutX="36.0" layoutY="40.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #16303F; -fx-text-fill: #339AF0;" AnchorPane.rightAnchor="20.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <Line endX="68.0" layoutX="92.0" layoutY="65.0" startX="-65.0" />
          </children>
       </AnchorPane>
    </children>

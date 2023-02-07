@@ -1,5 +1,6 @@
 package com.biksue.phonecentral_jdbc_sockets.controller.auxWindows;
 
+import com.biksue.phonecentral_jdbc_sockets.model.entity.Central;
 import com.biksue.phonecentral_jdbc_sockets.model.entity.places.City;
 import com.biksue.phonecentral_jdbc_sockets.model.entity.places.Country;
 import com.biksue.phonecentral_jdbc_sockets.model.entity.places.Province;
@@ -10,6 +11,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -24,7 +26,7 @@ public class CreateCentralController implements Initializable {
     private long idCountry;
     private long idProvince;
     private long idCity;
-
+    public TextField texFieName;
     public JFXListView<Label> LisVieCountries;
     public JFXListView<Label> LisVieProvinces;
     public JFXListView<Label> LisVieCities;
@@ -51,9 +53,15 @@ public class CreateCentralController implements Initializable {
 
     public void ButCreateCentralMouseClicked(MouseEvent mouseEvent) {
         try {
-            if (idCountry == 0 || idProvince == 0 || idCity == 0) throw new DAOException("Gato exception, XD...");
-        }catch (DAOException e){
-            this.LabException.setTextFill(Color.RED);
+            if (idCountry == 0 || idProvince == 0 || idCity == 0 || this.texFieName.getCharacters().isEmpty() || this.texFieName.getText().isBlank() || !this.texFieName.getText().matches("[a-zA-Z]+"))
+                throw new DAOException("Gato, XD...");
+            Constants.mySQLDAOManager.getCentralDAO().insert(new Central(this.texFieName.getText(), idCountry, idProvince, idCity));
+            Stage stage = (Stage) this.ButCreateCentral.getParent().getScene().getWindow();
+            stage.close();
+        } catch (DAOException e) {
+            /*this.LabException.setTextFill(Color.RED);*/
+            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
@@ -78,7 +86,6 @@ public class CreateCentralController implements Initializable {
             ArrayList<City> aux = Constants.mySQLDAOManager.getCityDAO().getAll();
             Label label;
             for (City c : CityFilter.filterByIdProvince(idProvince)) {
-                System.out.println("gato");
                 label = new Label();
                 label.setText(c.getName());
                 label.setTextFill(Color.WHITE);
@@ -100,7 +107,6 @@ public class CreateCentralController implements Initializable {
             Label label;
             for (Province c : aux) {
                 if (c.getIdCountry().equals(idCountry)) {
-                    System.out.println("gato");
                     label = new Label();
                     label.setText(c.getName());
                     label.setTextFill(Color.WHITE);

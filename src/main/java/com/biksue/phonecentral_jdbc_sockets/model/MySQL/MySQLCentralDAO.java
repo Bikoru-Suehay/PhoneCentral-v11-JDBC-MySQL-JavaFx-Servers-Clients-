@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class MySQLCentralDAO implements CentralDAO {
     private Connection connection;
-    final String INSERT = "INSERT INTO central( name, country, province, city) VALUES( ?, ?, ?, ?)";
-    final String UPDATE = "UPDATE central SET name=?, country=?, province=?, city=? WHERE id=?";
+    final String INSERT = "INSERT INTO central( name, idCountry, idProvince, idCity) VALUES( ?, ?, ?, ?)";
+    final String UPDATE = "UPDATE central SET name=?, idCountry=?, idProvince=?, idCity=? WHERE id=?";
     final String DELETE = "DELETE FROM central WHERE id=?";
     final String GETALL = "SELECT * FROM central";
     final String GETONE = "SELECT * FROM central WHERE id=?";
@@ -33,6 +33,7 @@ public class MySQLCentralDAO implements CentralDAO {
             statement.setLong(3, central.getProvince());
             statement.setLong(4, central.getCity());
             if (statement.executeUpdate() == 0) {
+                System.out.println("pinga");
                 throw new DAOException("No se han guardado cambios.");
             }
         } catch (SQLException e) {
